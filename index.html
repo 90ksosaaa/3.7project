@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h4>Press this button to play!</h4>
+        <button id="1">CLICK!</button>
+        <button id="2">2X!!</button>
+        <button id="3">5X!!!</button>
+        <button id="4">10X!!!!!!!!</button>
+        <button id="5">RESTART GAME</button>
+        <p id="score">0</p>
+        <h3>Current score to beat: Million </h3>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+        const click = document.getElementById('1');
+        const score = document.getElementById('score');
+        const multiplier  = document.getElementById('2');
+        const multiplier2= document.getElementById('3');
+        const multiplier3 = document.getElementById('4');
+        const restart = document.getElementById('5');
+
+        let clickvalue = 1;
+        let currentScore = 0;
+
+        click.addEventListener('click', function (e){
+            currentScore += clickvalue
+            score.innerText = currentScore
+            checkWin()
+        });
+
+        multiplier.addEventListener('click', function (e){
+            clickvalue += 2;
+        });
+
+        multiplier2.addEventListener('click', function (e){
+           clickvalue += 5;
+        });
+        multiplier3.addEventListener('click', function (e){
+           clickvalue += 500;
+        });
+
+        restart.addEventListener('click', function (){
+            currentScore = 0;
+            score.innerText = currentScore
+            clickvalue = 1
+        })
+    
+
+function checkWin(){
+    if (currentScore >= 1000000){
+        score.innerText = "YOU WIN"
+    }
+
+}
+
+
+
+</script>
+</body>
+</html>
